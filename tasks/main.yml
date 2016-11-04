@@ -36,6 +36,7 @@
   git:
     repo: git@github.com:ryanolson/snips.git
     dest: "{{ ansible_env.HOME }}/.vim/UltiSnips"
+    accept_hostkey: yes
 
 - copy: src=vimrc dest={{ ansible_env.HOME }}/.vimrc
   notify:
