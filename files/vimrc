@@ -1,0 +1,67 @@
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'valloric/youcompleteme'
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
+Plugin 'ekalinin/Dockerfile.vim'
+Plugin 'tpope/vim-fugitive'
+call vundle#end()            " required
+filetype plugin indent on    " required
+
+let g:solarized_termcolors=256
+
+" YouCompleteMe and UltiSnips compatibility, with the helper of supertab
+" (via http://stackoverflow.com/a/22253548/1626737)
+let g:SuperTabDefaultCompletionType    = '<C-n>'
+let g:SuperTabCrMapping                = 0
+let g:UltiSnipsListSnippets            ="<c-l>"
+let g:UltiSnipsExpandTrigger           = '<tab>'
+let g:UltiSnipsJumpForwardTrigger      = '<tab>'
+let g:UltiSnipsJumpBackwardTrigger     = '<s-tab>'
+let g:ycm_key_list_select_completion   = ['<C-j>', '<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-k>', '<C-p>', '<Up>']
+
+set runtimepath+=~/.vim
+let g:UltiSnipsEditSplit="vertical"
+
+syntax on
+syntax enable
+set number
+set encoding=utf-8
+set background=dark
+colorscheme solarized
+
+set noswapfile            " Not much need for swapfiles in the 21st century
+set wildmenu              " Turn on menu-based tab completion for commands
+set splitbelow splitright " More intuitive than default split behavior
+set nojoinspaces          " Use only one space after period when joining lines
+
+set shiftwidth=4          " Spaces to use for each indent step (>>, <<, etc.)
+set shiftround            " Round indent to multiple of shiftwidth
+set softtabstop=4         " Spaces to use for <tab> and <BS> editing operations
+set expandtab             " Use appropriate # of spaces for <tab> in insert mode
+set smarttab              " Be smart when using tabs
+
+set autoindent            " Copy indent from current line when starting new line
+set smartindent           " Who want dumb intenting
+set copyindent            " Copy indent style
+set backspace=2
+set bs=indent,eol,start   " Backspace over autoindent, EOL, and start of insert
+set linebreak             " Soft-wrap at word instead of character
+
+set ignorecase            " Case-insensitive search
+set smartcase             " Case-sensitive search if query contains uppercase
+
+set showmatch             " Briefly jump to matching bracket when inserted
+set visualbell t_vb=      " Turn off bell: most annoying default ever created

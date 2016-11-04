@@ -1,0 +1,6 @@
+---
+
+- name: install plugins
+  command: vim +PluginInstall! +qall
+  args:
+    ignore_errors: yes

@@ -1,0 +1,39 @@
+---
+
+- include: "macos.yml"
+  when: ansible_distribution == "Darwin"
+
+- include: "ubuntu.yml"
+  when: ansible_distribution == "Ubuntu"
+
+- copy: src=vimrc dest={{ ansible_env.HOME }}/.vimrc
+  notify:
+    - install plugins
+
+- name: Create .vim directory
+  file: path={{ ansible_env.HOME }}/.vim state=directory
+
+- name: Populate .vim directory
+  file: path={{ ansible_env.HOME }}/.vim/{{ item }} state=directory
+  with_items:
+    - bundle
+    - colors
+    - ftdetect
+
+- name: Clone Vundle.vim
+  git:
+    repo: https://github.com/VundleVim/Vundle.vim
+    dest: "{{ ansible_env.HOME }}/.vim/bundle/Vundle.vim"
+
+- name: Clone My Snippets
+  git:
+    repo: git@github.com:ryanolson/snips.git
+    dest: "{{ ansible_env.HOME }}/.vim/Ultisnips"
+
+- meta: flush_handlers
+
+- name: Configure YouCompleteMe
+  command: ./install.py 
+  args:
+    chdir: "{{ ansible_env.HOME }}/.vim/bundle/youcompleteme"
+    creates: "{{ ansible_env.HOME }}/.vim/bundle/youcompleteme/third_party/ycmd/ycm_core.so"
