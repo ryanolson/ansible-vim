@@ -1,7 +1,7 @@
 ---
 
 - name: install macos dependencies
-  homebrew: name={{ item }} state=present update_homebrew=yes
+  homebrew: name={{ item }} state=present
   with_items:
     - vim
     - cmake
