@@ -2,6 +2,7 @@
 
 - name: update apt cache
   apt: update_cache=yes cache_valid_time=600
+  become: true
 
 - name: install ubuntu dependencies
   apt: name={{ item }} state=latest
@@ -9,3 +10,4 @@
     - vim
     - cmake
     - git
+  become: true

@@ -4,7 +4,7 @@
   when: ansible_os_family == "Darwin"
 
 - include: "ubuntu.yml"
-  when: ansible_os_family == "Ubuntu"
+  when: ansible_distribution == "Ubuntu"
 
 - name: Create .vim directory
   file: path={{ ansible_env.HOME }}/.vim state=directory
