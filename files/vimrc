@@ -11,6 +11,7 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'altercation/vim-colors-solarized'
+Plugin 'ervandew/supertab'
 Plugin 'valloric/youcompleteme'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
@@ -31,8 +32,8 @@ let g:UltiSnipsJumpForwardTrigger      = '<tab>'
 let g:UltiSnipsJumpBackwardTrigger     = '<s-tab>'
 let g:UltiSnipsNewDir                  = '~/.vim/UltiSnips'
 let g:UltiSnipsEditSplit               = 'vertical'
-let g:ycm_key_list_select_completion   = ['<C-j>', '<C-n>', '<Down>']
-let g:ycm_key_list_previous_completion = ['<C-k>', '<C-p>', '<Up>']
+let g:ycm_key_list_select_completion   = ['<C-j>', '<c-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-k>', '<c-p>', '<Up>']
 
 "let g:vmap <c-c> '+y'
 
@@ -68,3 +69,5 @@ set smartcase             " Case-sensitive search if query contains uppercase
 
 set showmatch             " Briefly jump to matching bracket when inserted
 set visualbell t_vb=      " Turn off bell: most annoying default ever created
+
+:imap jw <Esc>
