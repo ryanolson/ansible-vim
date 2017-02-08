@@ -3,6 +3,6 @@
 - name: install macos dependencies
   homebrew: name={{ item }} state=present
   with_items:
-    - vim
+#   - vim
     - cmake
     - git

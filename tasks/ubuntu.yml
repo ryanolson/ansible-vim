@@ -10,4 +10,6 @@
     - vim
     - cmake
     - git
+    - python-dev
+    - build-essential
   become: true

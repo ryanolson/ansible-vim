@@ -2,3 +2,8 @@
 
 - name: install plugins
   command: vim +PluginInstall! +qall
+
+- name: rebuild ycm
+  file:
+    path: "{{ ansible_env.HOME }}/.vim/bundle/youcompleteme/third_party/ycmd/ycm_core.so"
+    state: absent

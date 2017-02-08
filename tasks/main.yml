@@ -38,9 +38,10 @@
     dest: "{{ ansible_env.HOME }}/.vim/UltiSnips"
     accept_hostkey: yes
 
-- copy: src=vimrc dest={{ ansible_env.HOME }}/.vimrc
-  notify:
-    - install plugins
+# copy: src=vimrc dest={{ ansible_env.HOME }}/.vimrc
+# notify:
+#   - install plugins
+#   - rebuild ycm
 
 - meta: flush_handlers
 
